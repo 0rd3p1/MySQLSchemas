@@ -20,10 +20,10 @@ ALTER TABLE tabela
 ADD COLUMN profissao VARCHAR(30) AFTER id;
 
 ALTER TABLE tabela 
-MODIFY COLUMN endereco CHAR(20);
+MODIFY COLUMN endereco CHAR(20);                     -- MODIFY troca apenas o tipo de dado
 
 ALTER TABLE tabela
-CHANGE COLUMN endereco indreco VARCHAR(20);
+CHANGE COLUMN endereco indreco VARCHAR(20);          -- CHANGE troca o tipo de dado e renomeia também
 
 ALTER TABLE tabela
 RENAME TO tabela_teste;
