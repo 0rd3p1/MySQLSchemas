@@ -1,94 +1,40 @@
-CREATE DATABASE escola
-DEFAULT CHARSET = utf8mb4;
+CREATE DATABASE meubanco;
 
-CREATE TABLE alunos (
+CREATE TABLE tabela (
 id INT NOT NULL AUTO_INCREMENT,
-nome VARCHAR(50),
-nascimento DATE,
-turma CHAR(2),
-email VARCHAR(30),
+nome VARCHAR(30),
+endereco VARCHAR(50),
 PRIMARY KEY(id) 
-);
+) DEFAULT CHARSET = utf8mb4;
 
-INSERT INTO alunos VALUES(
-DEFAULT, 'Joao Silva', '2005-03-15', '8A', 'joao.silva@gmail.com'
-);
+ALTER TABLE tabela
+ADD COLUMN profissao VARCHAR(30);
 
-CREATE TABLE professores(
-id INT NOT NULL AUTO_INCREMENT,
-nome VARCHAR(50),
-disciplina VARCHAR(10),
-salario DECIMAL(6,2),
-PRIMARY KEY(id)
-);
+ALTER TABLE tabela
+DROP COLUMN profissao;
 
-INSERT INTO professores VALUES(
-DEFAULT, 'Mariana Gomes', 'Portugues', '1200.00' 
-);
+ALTER TABLE tabela
+ADD COLUMN profissao VARCHAR(30) FIRST;
 
-CREATE DATABASE biblioteca
-DEFAULT CHARSET = utf8mb4; 
+ALTER TABLE tabela
+ADD COLUMN profissao VARCHAR(30) AFTER id;
 
-CREATE TABLE livros(
-id INT NOT NULL AUTO_INCREMENT,
-titulo VARCHAR(30),
-autor VARCHAR(40),
-ano YEAR,
-disponivel BOOLEAN,
-PRIMARY KEY(id)
-); 
+ALTER TABLE tabela 
+MODIFY COLUMN endereco CHAR(20);                     -- MODIFY troca apenas o tipo de dado
 
-INSERT INTO livros VALUES(
-DEFAULT, 'Harry Potter 3', 'J. K. Rowling', '1999', FALSE
-);
+ALTER TABLE tabela
+CHANGE COLUMN endereco indreco VARCHAR(20);          -- CHANGE troca o tipo de dado e renomeia também
 
-CREATE DATABASE empresa
-DEFAULT CHARSET = utf8mb4;
+ALTER TABLE tabela
+RENAME TO tabela_teste;
 
-CREATE TABLE funcionarios(
-id INT NOT NULL AUTO_INCREMENT,
-nome VARCHAR(40),
-cargo VARCHAR(10),
-salario FLOAT,
-admissao DATE,
-PRIMARY KEY(id)
-); 
+CREATE TABLE IF NOT EXISTS curso (
+nome VARCHAR(30) NOT NULL UNIQUE,
+descricao TEXT,
+carga INT UNSIGNED,
+ano YEAR DEFAULT '2024'
+) DEFAULT CHARSET = utf8mb4;
 
-INSERT INTO funcionarios VALUES(
-DEFAULT, 'Mauricio', 'Faxineiro', 1200, '2018-04-12'
-);
+DROP TABLE IF EXISTS curso;
 
-CREATE DATABASE cinema
-DEFAULT CHARSET = utf8mb4;
-
-CREATE TABLE filmes(
-id INT NOT NULL AUTO_INCREMENT,
-titulo VARCHAR(30),
-diretor VARCHAR(40),
-genero VARCHAR(10),
-duracao INT,
-classificacao CHAR(5),
-PRIMARY KEY(id)
-); 
-
-INSERT INTO filmes VALUES(
-DEFAULT, 'Toy Story 2', 'John Lasseter', 'animacao', 122, 'Livre'
-);
-
-CREATE DATABASE musica
-DEFAULT CHARSET = utf8mb4;
-
-CREATE TABLE albuns(
-id INT NOT NULL AUTO_INCREMENT,
-nome VARCHAR(20),
-artista VARCHAR(40),
-ano YEAR,
-genero VARCHAR(10),
-PRIMARY KEY(id)
-); 
-
-INSERT INTO albuns VALUES(
-DEFAULT, 'DAYS BEFORE RODEO', 'Travis Scott', 2014, 'Trap'
-);
-
-SELECT * FROM albuns;
+SELECT * FROM tabela_teste;                            -- tabela_teste ou tabela
