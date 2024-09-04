@@ -3,7 +3,7 @@ SELECT * FROM produtos;       -- * = tudo da tabela
 -- ORDER BY 
 
 SELECT * FROM produtos
-ORDER BY preco;               -- ORDER BY ??? DESC = para ordem decrescente
+ORDER BY preco;               -- ORDER BY ??? DESC = para ordem decrescente   ASC = para ordem crescente (padrão)
 
 -- WHERE
 

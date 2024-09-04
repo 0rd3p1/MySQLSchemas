@@ -19,7 +19,7 @@ ano YEAR,
 PRIMARY KEY(id)
 );
 
-CREATE DATABASE musica
+CREATE DATABASE musicas
 DEFAULT CHARSET = utf8mb4;
 
 CREATE TABLE artistas (
@@ -59,7 +59,88 @@ REFERENCES autores(id),
 PRIMARY KEY(id)
 );
 
+SELECT p.nome, d.nome 
+FROM personagens AS p                   -- AS funciona como u ALIAS para declarar um apelido para a tabela
+JOIN desenhos AS d                      -- INNER JOIN || JOIN
+ON d.id = p.desenhos_id; 
 
+SELECT al.nome, ar.nome
+FROM albuns AS al
+JOIN artistas AS ar
+ON ar.id = al.artistas_id;
+
+SELECT l.titulo, a.nacionalidade
+FROM autores AS a
+JOIN livros AS l
+ON a.id = l.autores_id;
+
+SELECT p.nome, d.nome 
+FROM personagens AS p
+LEFT JOIN desenhos AS d                  -- mostra os personagens mesmo sem um desenho atrelado
+ON d.id = p.desenhos_id;
+
+SELECT p.nome, d.nome 
+FROM personagens AS p
+RIGHT JOIN desenhos AS d                 -- mostra os desenhos mesmo sem um personagem atrelado
+ON d.id = p.desenhos_id;
+
+SELECT al.nome, ar.nome
+FROM albuns AS al
+LEFT JOIN artistas AS ar
+ON ar.id = al.artistas_id;
+
+SELECT al.nome, ar.nome
+FROM albuns AS al
+RIGHT JOIN artistas AS ar
+ON ar.id = al.artistas_id;
+
+SELECT l.titulo, a.nacionalidade
+FROM autores AS a
+LEFT JOIN livros AS l
+ON a.id = l.autores_id;
+
+SELECT l.titulo, a.nacionalidade
+FROM autores AS a
+RIGHT JOIN livros AS l
+ON a.id = l.autores_id;
+
+SELECT p.nome, d.nome 
+FROM personagens AS p
+JOIN desenhos AS d
+ON d.id = p.desenhos_id && p.idade > 18;
+
+SELECT al.nome, ar.nome
+FROM albuns AS al
+JOIN artistas AS ar
+ON ar.id = al.artistas_id AND al.ano < 2000;
+
+SELECT l.titulo
+FROM autores AS a
+JOIN livros AS l
+ON a.id = l.autores_id && a.nacionalidade = 'Brasil';
+
+SELECT p.nome, d.nome 
+FROM personagens AS p
+JOIN desenhos AS d
+ON d.id = p.desenhos_id
+ORDER BY d.nome; 
+
+SELECT al.nome, ar.nome
+FROM albuns AS al
+JOIN artistas AS ar
+ON ar.id = al.artistas_id
+ORDER BY al.ano DESC;
+
+SELECT l.titulo, a.nome
+FROM autores AS a
+JOIN livros AS l
+ON a.id = l.autores_id
+ORDER BY l.titulo;
+
+SELECT COUNT(d.nome)
+FROM personagens AS p
+JOIN desenhos AS d
+ON d.id = p.desenhos_id; 
 
 SELECT * FROM personagens;
 DESC personagens;
