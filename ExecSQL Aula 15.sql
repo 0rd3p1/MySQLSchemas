@@ -137,10 +137,11 @@ JOIN livros AS l
 ON a.id = l.autores_id
 ORDER BY l.titulo;
 
-SELECT COUNT(d.nome)
+SELECT d.nome, COUNT(p.id) personagens
 FROM personagens AS p
 JOIN desenhos AS d
-ON d.id = p.desenhos_id; 
+ON d.id = p.desenhos_id
+GROUP BY d.nome;
 
 SELECT * FROM personagens;
-DESC personagens;
+DESC desenhos;
