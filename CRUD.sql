@@ -24,6 +24,6 @@ valor FLOAT,
 PRIMARY KEY(id)
 );
 
-SELECT * FROM usuario;
+SELECT * FROM produto;
 
 INSERT INTO usuario VALUES(DEFAULT, 'Pedro', '0rd3p1', 12345);
