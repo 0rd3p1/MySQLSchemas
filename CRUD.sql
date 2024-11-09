@@ -24,6 +24,6 @@ valor FLOAT,
 PRIMARY KEY(id)
 );
 
-SELECT * FROM produto;
+SELECT * FROM produto WHERE valor <= 40;
 
 INSERT INTO usuario VALUES(DEFAULT, 'Pedro', '0rd3p1', 12345);
