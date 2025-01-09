@@ -1,0 +1,17 @@
+CREATE DATABASE calculator
+DEFAULT CHARSET = utf8mb4;
+
+USE calculator;
+
+CREATE TABLE users (
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(20),
+passwd VARCHAR(20)
+);
+
+CREATE TABLE operations (
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+hist VARCHAR(70)
+);
+
+DROP TABLE users;
