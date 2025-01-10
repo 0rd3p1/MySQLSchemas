@@ -11,7 +11,15 @@ passwd VARCHAR(20)
 
 CREATE TABLE operations (
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-hist VARCHAR(70)
+idUser INT NOT NULL,
+hist VARCHAR(70),
+FOREIGN KEY (idUser) REFERENCES users (id)
 );
+
+DELETE FROM users WHERE username = 'teste' AND passwd = 'teste';
+
+INSERT INTO users VALUES (DEFAULT, 'teste', 'teste');
+
+SELECT * FROM users;
 
 DROP TABLE users;
