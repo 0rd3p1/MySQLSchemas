@@ -16,10 +16,11 @@ hist VARCHAR(70),
 FOREIGN KEY (idUser) REFERENCES users (id)
 );
 
-DELETE FROM users WHERE username = 'teste' AND passwd = 'teste';
-
 INSERT INTO users VALUES (DEFAULT, 'teste', 'teste');
+
+DELETE FROM users WHERE username = 'teste' AND passwd = 'teste';
 
 SELECT * FROM users;
 
 DROP TABLE users;
+DROP DATABASE calculator;
