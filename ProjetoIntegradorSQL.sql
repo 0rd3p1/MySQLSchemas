@@ -6,14 +6,7 @@ USE calculator;
 CREATE TABLE users (
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 username VARCHAR(20),
-passwd VARCHAR(20)
-);
-
-CREATE TABLE operations (
-id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-idUser INT NOT NULL,
-hist VARCHAR(70),
-FOREIGN KEY (idUser) REFERENCES users (id)
+passwd VARCHAR(60)
 );
 
 INSERT INTO users VALUES (DEFAULT, 'teste', 'teste');

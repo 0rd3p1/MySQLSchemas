@@ -7,7 +7,7 @@ nome VARCHAR(30),
 idade INT,
 desenhos_id INT,
 FOREIGN KEY(desenhos_id)
-REFERENCES desenhos(id),
+REFERENCES desenhos(id) ON DELETE CASCADE,
 PRIMARY KEY(id)
 );
 
@@ -35,7 +35,7 @@ titulo VARCHAR(20),
 ano YEAR,
 artistas_id INT,
 FOREIGN KEY(artistas_id)
-REFERENCES artistas(id),
+REFERENCES artistas(id) ON DELETE CASCADE,
 PRIMARY KEY(id)
 );
 
@@ -55,7 +55,7 @@ titulo VARCHAR(20),
 genero VARCHAR(10),
 autores_id INT,
 FOREIGN KEY (autores_id)
-REFERENCES autores(id),
+REFERENCES autores(id) ON DELETE CASCADE,  -- ON DELETE CASCADE vai excluir tudo relacionado ao item entrelacado se o item for excluido
 PRIMARY KEY(id)
 );
 
