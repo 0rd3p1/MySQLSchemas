@@ -9,6 +9,18 @@ username VARCHAR(20),
 passwd VARCHAR(60)
 );
 
+CREATE TABLE hist (
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+idUser INT NOT NULL,
+som VARCHAR(150),
+sub VARCHAR(150),
+mul VARCHAR(150),
+divi VARCHAR(150),
+pot VARCHAR(150),
+rai VARCHAR(150),
+FOREIGN KEY (idUser) REFERENCES users(id) ON DELETE CASCADE
+);
+
 INSERT INTO users VALUES (DEFAULT, 'teste', 'teste');
 
 DELETE FROM users WHERE username = 'teste' AND passwd = 'teste';
