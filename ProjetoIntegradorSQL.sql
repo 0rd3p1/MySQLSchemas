@@ -5,7 +5,7 @@ USE calculator;
 
 CREATE TABLE users (
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-username VARCHAR(20),
+username VARCHAR(30),
 passwd VARCHAR(60)
 );
 
@@ -16,9 +16,9 @@ som VARCHAR(150),
 sub VARCHAR(150),
 mul VARCHAR(150),
 divi VARCHAR(150),
-pot VARCHAR(150),
 rai VARCHAR(150),
-FOREIGN KEY (idUser) REFERENCES users(id) ON DELETE CASCADE
+pot VARCHAR(150),
+FOREIGN KEY (idUser) REFERENCES users (username)
 );
 
 INSERT INTO users VALUES (DEFAULT, 'teste', 'teste');
